@@ -145,34 +145,28 @@ elemLibrosContainer.innerHTML += htmlNuevosLibros;
 PUNTO 16 ------------------------------------------------------------------------------ */
 
 /* class Libreria {
-    constructor (libros) {
-      this.libros = libros;
-    }
+  constructor(libros) {
+    this.libros = libros;
+  }
 
-    cargarElementoConLibros(id_destino) {
-      const elemLibrosContainer = document.getElementById(id_destino);
-      let htmlNuevosLibros = '';
-  
-      for (let i = 0; i < this.libros.length; i++) {
-        const libroHtml = this.libros[i].getHtmlArticle();
-  
-        if (htmlNuevosLibros.indexOf(libroHtml) === -1) {
-          htmlNuevosLibros += libroHtml;
-        }
-      }
-  
-      elemLibrosContainer.innerHTML += htmlNuevosLibros;
+  cargarElementoConLibros(id_destino) {
+    const elemLibrosContainer = document.getElementById(id_destino);
+
+    if (elemLibrosContainer) {
+      const htmlLibros = this.libros.map(libro => libro.getHtmlArticle()).join('');
+      elemLibrosContainer.innerHTML += htmlLibros;
+    } else {
+      console.error(`Elemento con ID ${id_destino} no encontrado.`);
     }
+  }
 }
 
-let id_destino = 'libros';
-let libros = [libro1, libro2, libro3, libro4];
-let libreria = new Libreria(libros);
-libreria.cargarElementoConLibros(id_destino); */
+const libros = [libroDePrueba, libro1, libro2, libro3, libro4];
+const libreria = new Libreria(libros);
+libreria.cargarElementoConLibros('libros');
+ */
 
 
 /* PUNTO 17 --------------------------------------------------------------------------- */
-// ... código ...
-/* (new Libreria([libro1, libro2, libro3, libro4])).cargarElementoConLibros('libros');
- */
 
+/* (new Libreria([libroDePrueba, libro1, libro2, libro3, libro4])).cargarElementoConLibros('libros'); */
